@@ -4,9 +4,10 @@ const loremIpsum = require('lorem-ipsum')
  , output = loremIpsum();
 
 
-app.get('/lorem', function(req, res){
+app.get('/lorem/:paragraphs', function(req, res){
+
   res.send(loremIpsum({
-    count: 3
+    count: req.params.paragraphs
     , units: 'paragraphs'
     , format: 'html'
   }));
